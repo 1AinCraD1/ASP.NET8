@@ -1,0 +1,55 @@
+@model IEnumerable<Namespace.Models.Product>
+
+<h2>Products List</h2>
+
+<ul>
+    @foreach (var product in Model)
+
+    {
+        <li>@product.ID. @product.Name – @product.Price$ (@product.CreatedDate.ToShortDateString())</li>
+    }
+</ul>
+
+<h2>Products Table</h2>
+
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Created Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+
+        {
+            <tr>
+                <td>@product.ID</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.CreatedDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    .styled-table {
+        border-collapse: collapse;
+        width: 40%;
+    }
+
+    .styled-table th,
+    .styled-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    .styled-table th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        text-align: left;
+    }
+</style>
